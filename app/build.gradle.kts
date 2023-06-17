@@ -57,6 +57,8 @@ dependencies {
     implementation(platform(Compose.BOM.bom))
     implementation(Retrofit.retrofit)
     implementation(Retrofit.converterGson)
+    implementation(AndroidX.Room.runtime)
+    kapt(AndroidX.Room.compiler)
     implementation(Hilt.android)
     kapt(Hilt.androidCompiler)
     implementation(Compose.UI.ui)

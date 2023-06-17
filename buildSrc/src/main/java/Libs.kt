@@ -68,13 +68,22 @@ object AndroidX {
 
         const val compose = "$group:navigation-compose:$version"
     }
+
+    object Room {
+        private const val group = "androidx.room"
+        private const val version = "2.4.0"
+
+        const val runtime = "$group:room-runtime:$version"
+        const val compiler = "$group:room-compiler:$version"
+    }
 }
 
 object Retrofit {
+    private const val group = "com.squareup.retrofit2"
     private const val version = "2.9.0"
 
-    const val retrofit = "com.squareup.retrofit2:retrofit:$version"
-    const val converterGson = "com.squareup.retrofit2:converter-gson:$version"
+    const val retrofit = "$group:retrofit:$version"
+    const val converterGson = "$group:converter-gson:$version"
 }
 
 object Compose {
