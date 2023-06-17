@@ -21,6 +21,16 @@ object Kotlin {
     const val plugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$pluginVersion"
 }
 
+object Hilt {
+    const val plugin = "com.google.dagger.hilt.android"
+
+    private const val group = "com.google.dagger"
+    const val version = "2.44"
+
+    const val android = "$group:hilt-android:$version"
+    const val androidCompiler = "$group:hilt-android-compiler:$version"
+}
+
 object KotlinX {
     object Coroutines {
         private const val group = "org.jetbrains.kotlinx"
@@ -58,6 +68,13 @@ object AndroidX {
 
         const val compose = "$group:navigation-compose:$version"
     }
+}
+
+object Retrofit {
+    private const val version = "2.9.0"
+
+    const val retrofit = "com.squareup.retrofit2:retrofit:$version"
+    const val converterGson = "com.squareup.retrofit2:converter-gson:$version"
 }
 
 object Compose {

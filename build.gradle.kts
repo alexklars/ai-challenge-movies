@@ -18,6 +18,10 @@ allprojects {
     }
 }
 
+plugins {
+    id(Hilt.plugin) version Hilt.version apply false
+}
+
 tasks.register("clean", Delete::class) {
     delete(rootProject.buildDir)
 }

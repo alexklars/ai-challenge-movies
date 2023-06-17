@@ -1,6 +1,8 @@
 plugins {
     id(Android.application)
     id(Kotlin.android)
+    kotlin("kapt")
+    id(Hilt.plugin)
 }
 
 android {
@@ -53,6 +55,10 @@ dependencies {
     implementation(AndroidX.Constraintlayout.compose)
     implementation(AndroidX.Navigation.compose)
     implementation(platform(Compose.BOM.bom))
+    implementation(Retrofit.retrofit)
+    implementation(Retrofit.converterGson)
+    implementation(Hilt.android)
+    kapt(Hilt.androidCompiler)
     implementation(Compose.UI.ui)
     implementation(Compose.UI.preview)
     implementation(Compose.Material.material)
@@ -61,4 +67,8 @@ dependencies {
     debugImplementation(Compose.UI.manifest)
 
     androidTestImplementation(Compose.UI.junit)
+}
+
+kapt {
+    correctErrorTypes = true
 }
