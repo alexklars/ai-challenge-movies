@@ -6,7 +6,7 @@ import androidx.compose.material.ListItem
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.ai.challenge.alexklars.movies.data.remote.model.Movie
+import com.ai.challenge.alexklars.movies.domain.model.Movie
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable

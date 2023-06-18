@@ -1,4 +1,4 @@
-package com.ai.challenge.alexklars.movies.data.remote.model
+package com.ai.challenge.alexklars.movies.domain.model
 
 data class MovieDetails(
     val name: String,

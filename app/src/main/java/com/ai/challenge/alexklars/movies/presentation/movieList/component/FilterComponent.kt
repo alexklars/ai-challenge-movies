@@ -24,7 +24,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
-import com.ai.challenge.alexklars.movies.presentation.movieList.FilterState
+import com.ai.challenge.alexklars.movies.presentation.movieList.model.FilterState
 
 @Composable
 fun FilterComponent(

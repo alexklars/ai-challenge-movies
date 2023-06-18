@@ -10,8 +10,8 @@ import com.ai.challenge.alexklars.movies.data.remote.retrofit.MovieApiService
 import com.ai.challenge.alexklars.movies.data.remote.retrofit.RetrofitClient
 import com.ai.challenge.alexklars.movies.domain.MovieRepository
 import com.ai.challenge.alexklars.movies.domain.MovieRepositoryImpl
-import com.ai.challenge.alexklars.movies.domain.local.MovieLocalDataSource
-import com.ai.challenge.alexklars.movies.domain.remote.MovieRemoteDataSource
+import com.ai.challenge.alexklars.movies.domain.dataSourcies.MovieLocalDataSource
+import com.ai.challenge.alexklars.movies.domain.dataSourcies.MovieRemoteDataSource
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

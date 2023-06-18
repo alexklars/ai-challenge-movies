@@ -18,7 +18,7 @@ import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
-import com.ai.challenge.alexklars.movies.presentation.movieList.SortType
+import com.ai.challenge.alexklars.movies.presentation.movieList.model.SortType
 
 @Composable
 fun SortOptionsComponent(

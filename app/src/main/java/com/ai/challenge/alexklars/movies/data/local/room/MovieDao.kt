@@ -5,7 +5,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Transaction
-import com.ai.challenge.alexklars.movies.data.remote.model.Movie
+import com.ai.challenge.alexklars.movies.domain.model.Movie
 import kotlinx.coroutines.flow.Flow
 
 @Dao

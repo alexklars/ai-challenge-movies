@@ -1,7 +1,7 @@
 package com.ai.challenge.alexklars.movies.data.remote.retrofit
 
-import com.ai.challenge.alexklars.movies.data.remote.model.Movie
-import com.ai.challenge.alexklars.movies.data.remote.model.MovieDetails
+import com.ai.challenge.alexklars.movies.domain.model.Movie
+import com.ai.challenge.alexklars.movies.domain.model.MovieDetails
 import retrofit2.http.GET
 import retrofit2.http.Query
 

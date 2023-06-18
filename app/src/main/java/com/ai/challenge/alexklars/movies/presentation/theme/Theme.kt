@@ -1,4 +1,4 @@
-package com.ai.challenge.alexklars.movies.ui.theme
+package com.ai.challenge.alexklars.movies.presentation.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme

@@ -1,14 +1,11 @@
-package com.ai.challenge.alexklars.movies.domain
+package com.ai.challenge.alexklars.movies.domain.dataSourcies
 
 import com.ai.challenge.alexklars.movies.domain.model.Movie
 import com.ai.challenge.alexklars.movies.domain.model.MovieDetails
-import kotlinx.coroutines.flow.Flow
 
-interface MovieRepository {
+interface MovieRemoteDataSource {
 
-    fun getMovies(): Flow<List<Movie>>
-
-    suspend fun updateMovies()
+    suspend fun getMovies(): List<Movie>
 
     suspend fun getMovieDetails(movieId: String): MovieDetails
 }

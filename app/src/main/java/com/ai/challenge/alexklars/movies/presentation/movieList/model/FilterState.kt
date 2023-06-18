@@ -1,4 +1,4 @@
-package com.ai.challenge.alexklars.movies.presentation.movieList
+package com.ai.challenge.alexklars.movies.presentation.movieList.model
 
 sealed class FilterState {
 

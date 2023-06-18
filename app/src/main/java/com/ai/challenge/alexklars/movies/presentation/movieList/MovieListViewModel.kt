@@ -2,8 +2,10 @@ package com.ai.challenge.alexklars.movies.presentation.movieList
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.ai.challenge.alexklars.movies.data.remote.model.Movie
+import com.ai.challenge.alexklars.movies.domain.model.Movie
 import com.ai.challenge.alexklars.movies.domain.MovieRepository
+import com.ai.challenge.alexklars.movies.presentation.movieList.model.FilterState
+import com.ai.challenge.alexklars.movies.presentation.movieList.model.SortType
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

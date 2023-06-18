@@ -1,6 +1,6 @@
-package com.ai.challenge.alexklars.movies.domain.local
+package com.ai.challenge.alexklars.movies.domain.dataSourcies
 
-import com.ai.challenge.alexklars.movies.data.remote.model.Movie
+import com.ai.challenge.alexklars.movies.domain.model.Movie
 import kotlinx.coroutines.flow.Flow
 
 interface MovieLocalDataSource {

@@ -1,9 +1,9 @@
 package com.ai.challenge.alexklars.movies.domain
 
-import com.ai.challenge.alexklars.movies.data.remote.model.Movie
-import com.ai.challenge.alexklars.movies.data.remote.model.MovieDetails
-import com.ai.challenge.alexklars.movies.domain.local.MovieLocalDataSource
-import com.ai.challenge.alexklars.movies.domain.remote.MovieRemoteDataSource
+import com.ai.challenge.alexklars.movies.domain.model.Movie
+import com.ai.challenge.alexklars.movies.domain.model.MovieDetails
+import com.ai.challenge.alexklars.movies.domain.dataSourcies.MovieLocalDataSource
+import com.ai.challenge.alexklars.movies.domain.dataSourcies.MovieRemoteDataSource
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 

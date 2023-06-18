@@ -3,7 +3,7 @@ package com.ai.challenge.alexklars.movies.presentation.movieDetails
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.ai.challenge.alexklars.movies.data.remote.model.MovieDetails
+import com.ai.challenge.alexklars.movies.domain.model.MovieDetails
 import com.ai.challenge.alexklars.movies.domain.MovieRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
