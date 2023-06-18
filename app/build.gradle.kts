@@ -62,6 +62,7 @@ dependencies {
     kapt(AndroidX.Room.compiler)
     implementation(Hilt.android)
     kapt(Hilt.androidCompiler)
+    implementation(AndroidX.Hilt.navigationCompose)
     implementation(Compose.UI.ui)
     implementation(Compose.UI.preview)
     implementation(Compose.Material.material)

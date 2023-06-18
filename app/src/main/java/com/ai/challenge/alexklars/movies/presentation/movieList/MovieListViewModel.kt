@@ -37,10 +37,6 @@ class MovieListViewModel @Inject constructor(
         }
     }
 
-    fun onMovieClicked(movieId: String) {
-        println("Clicked movie ID: $movieId")
-    }
-
     fun setSortType(sortType: SortType) {
         _sortType.value = sortType
         applyFilerAndSort()

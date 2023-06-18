@@ -69,6 +69,13 @@ object AndroidX {
         const val compose = "$group:navigation-compose:$version"
     }
 
+    object Hilt {
+        private const val group = "androidx.hilt"
+        private const val version = "1.0.0"
+
+        const val navigationCompose = "$group:hilt-navigation-compose:$version"
+    }
+
     object Room {
         private const val group = "androidx.room"
         private const val version = "2.4.0"

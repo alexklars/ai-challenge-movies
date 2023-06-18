@@ -22,13 +22,14 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavHostController
 import coil.compose.rememberAsyncImagePainter
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun MovieDetailsScreen(
-    viewModel: MovieDetailsViewModel = viewModel(),
+    navController: NavHostController,
+    viewModel: MovieDetailsViewModel
 ) {
     val movieDetails by viewModel.movieDetails.collectAsState()
 
@@ -37,7 +38,7 @@ fun MovieDetailsScreen(
             TopAppBar(
                 title = { Text(text = "Movie Details") },
                 navigationIcon = {
-                    IconButton(onClick = { /* Handle back button click */ }) {
+                    IconButton(onClick = navController::popBackStack) {
                         Icon(Icons.Default.ArrowBack, contentDescription = "Back")
                     }
                 }

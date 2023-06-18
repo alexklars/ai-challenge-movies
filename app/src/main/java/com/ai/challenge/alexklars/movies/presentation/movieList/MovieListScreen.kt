@@ -14,15 +14,17 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavHostController
 import com.ai.challenge.alexklars.movies.presentation.movieList.component.FilterComponent
 import com.ai.challenge.alexklars.movies.presentation.movieList.component.MovieItemComponent
 import com.ai.challenge.alexklars.movies.presentation.movieList.component.SortOptionsComponent
+import com.ai.challenge.alexklars.movies.presentation.navigation.AppDestinations
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun MovieListScreen(
-    viewModel: MovieListViewModel = viewModel()
+    navController: NavHostController,
+    viewModel: MovieListViewModel,
 ) {
     val movies by viewModel.movies.collectAsState()
     val sortType by viewModel.sortType.collectAsState()
@@ -54,7 +56,9 @@ fun MovieListScreen(
                 items(movies) { movie ->
                     MovieItemComponent(
                         movie = movie,
-                        onItemClick = viewModel::onMovieClicked
+                        onItemClick = {
+                            navController.navigate("${AppDestinations.MovieDetailsScreen}/$it")
+                        }
                     )
                 }
             }

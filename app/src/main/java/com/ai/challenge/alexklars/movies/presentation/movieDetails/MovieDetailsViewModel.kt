@@ -1,5 +1,6 @@
 package com.ai.challenge.alexklars.movies.presentation.movieDetails
 
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.ai.challenge.alexklars.movies.data.remote.model.MovieDetails
@@ -13,7 +14,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MovieDetailsViewModel @Inject constructor(
-//    private val movieId: String,
+    private val savedStateHandle: SavedStateHandle,
     private val movieRepository: MovieRepository
 ) : ViewModel() {
 
@@ -26,7 +27,9 @@ class MovieDetailsViewModel @Inject constructor(
 
     private fun fetchMovieDetails() {
         viewModelScope.launch {
-            val movieDetails = movieRepository.getMovieDetails("0")
+            val movieId = savedStateHandle.get<String>("movieId")
+                ?: error("You must pass movieId to MovieDetailsViewModel")
+            val movieDetails = movieRepository.getMovieDetails(movieId)
             _movieDetails.value = movieDetails
         }
     }
