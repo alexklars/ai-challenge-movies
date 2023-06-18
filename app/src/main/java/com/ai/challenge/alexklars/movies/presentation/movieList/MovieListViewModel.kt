@@ -16,11 +16,14 @@ class MovieListViewModel @Inject constructor(
     private val movieRepository: MovieRepository
 ) : ViewModel() {
 
-    private val _movies: MutableStateFlow<List<Movie>> = MutableStateFlow(emptyList())
-    val movies: StateFlow<List<Movie>> get() = _movies.asStateFlow()
+    private val _originalMovies: MutableStateFlow<List<Movie>> = MutableStateFlow(emptyList())
+    private val _filteredMovies: MutableStateFlow<List<Movie>> = MutableStateFlow(emptyList())
+    private val _sortType: MutableStateFlow<SortType> = MutableStateFlow(SortType.NONE)
+    private val _filterState: MutableStateFlow<FilterState> = MutableStateFlow(FilterState.NONE)
 
-    private val _sortType = MutableStateFlow(SortType.NONE)
+    val movies: StateFlow<List<Movie>> = _filteredMovies.asStateFlow()
     val sortType: StateFlow<SortType> = _sortType.asStateFlow()
+    val filterState: StateFlow<FilterState> = _filterState.asStateFlow()
 
     init {
         viewModelScope.launch {
@@ -28,7 +31,8 @@ class MovieListViewModel @Inject constructor(
         }
         viewModelScope.launch {
             movieRepository.getMovies().collect {
-                _movies.value = it
+                _originalMovies.value = it
+                applyFilerAndSort()
             }
         }
     }
@@ -37,19 +41,40 @@ class MovieListViewModel @Inject constructor(
         println("Clicked movie ID: $movieId")
     }
 
-    fun applySort(sortType: SortType) {
+    fun setSortType(sortType: SortType) {
         _sortType.value = sortType
-        updateSortedMovies()
+        applyFilerAndSort()
     }
 
-    private fun updateSortedMovies() {
-        val sortedMovies = when (sortType.value) {
-            SortType.PRICE_LOW_TO_HIGH -> movies.value.sortedBy { it.price }
-            SortType.PRICE_HIGH_TO_LOW -> movies.value.sortedByDescending { it.price }
-            SortType.NAME_A_TO_Z -> movies.value.sortedBy { it.name }
-            SortType.NAME_Z_TO_A -> movies.value.sortedByDescending { it.name }
-            else -> movies.value
+    fun setFilterState(filterState: FilterState) {
+        _filterState.value = filterState
+        applyFilerAndSort()
+    }
+
+    private fun applyFilerAndSort() {
+        _filteredMovies.value = _originalMovies.value
+            .filter(filterState.value)
+            .sort(sortType.value)
+    }
+}
+
+private fun List<Movie>.sort(sortType: SortType): List<Movie> {
+    return when (sortType) {
+        SortType.PRICE_LOW_TO_HIGH -> sortedBy { it.price }
+        SortType.PRICE_HIGH_TO_LOW -> sortedByDescending { it.price }
+        SortType.NAME_A_TO_Z -> sortedBy { it.name }
+        SortType.NAME_Z_TO_A -> sortedByDescending { it.name }
+        else -> this
+    }
+}
+
+private fun List<Movie>.filter(filterState: FilterState): List<Movie> {
+    return when (filterState) {
+        is FilterState.PriceRange -> {
+            filter { movie ->
+                movie.price in filterState.minPrice..filterState.maxPrice
+            }
         }
-        _movies.value = sortedMovies
+        FilterState.NONE -> this
     }
 }

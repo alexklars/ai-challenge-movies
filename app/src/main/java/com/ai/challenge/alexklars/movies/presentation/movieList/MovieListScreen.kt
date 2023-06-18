@@ -15,6 +15,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.ai.challenge.alexklars.movies.presentation.movieList.component.FilterComponent
 import com.ai.challenge.alexklars.movies.presentation.movieList.component.MovieItemComponent
 import com.ai.challenge.alexklars.movies.presentation.movieList.component.SortOptionsComponent
 
@@ -25,6 +26,7 @@ fun MovieListScreen(
 ) {
     val movies by viewModel.movies.collectAsState()
     val sortType by viewModel.sortType.collectAsState()
+    val filterState by viewModel.filterState.collectAsState()
 
     Scaffold(
         topBar = {
@@ -34,23 +36,25 @@ fun MovieListScreen(
         }
     ) {
         Column {
-            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
-                // Filter options UI
-                // Implement UI for filter options based on your specific requirements
-                // For example, a dropdown menu or sliders for price range
-
-                // Sort options UI
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween,
+            ) {
                 SortOptionsComponent(
                     sortType = sortType,
-                    onSortSelected = viewModel::applySort,
+                    onSortSelected = viewModel::setSortType
+                )
+                FilterComponent(
+                    filterState = filterState,
+                    onFilterSelected = viewModel::setFilterState
                 )
             }
-
-            LazyColumn {
+            LazyColumn() {
                 items(movies) { movie ->
                     MovieItemComponent(
                         movie = movie,
-                        onItemClick = viewModel::onMovieClicked,
+                        onItemClick = viewModel::onMovieClicked
                     )
                 }
             }
