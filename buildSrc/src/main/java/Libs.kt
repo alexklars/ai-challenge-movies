@@ -74,6 +74,7 @@ object AndroidX {
         private const val version = "2.4.0"
 
         const val runtime = "$group:room-runtime:$version"
+        const val ktx = "$group:room-ktx:$version"
         const val compiler = "$group:room-compiler:$version"
     }
 }

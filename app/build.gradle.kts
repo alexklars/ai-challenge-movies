@@ -58,6 +58,7 @@ dependencies {
     implementation(Retrofit.retrofit)
     implementation(Retrofit.converterGson)
     implementation(AndroidX.Room.runtime)
+    implementation(AndroidX.Room.ktx)
     kapt(AndroidX.Room.compiler)
     implementation(Hilt.android)
     kapt(Hilt.androidCompiler)
