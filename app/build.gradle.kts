@@ -65,6 +65,7 @@ dependencies {
     implementation(Compose.UI.ui)
     implementation(Compose.UI.preview)
     implementation(Compose.Material.material)
+    implementation(Coil.compose)
 
     debugImplementation(Compose.UI.tooling)
     debugImplementation(Compose.UI.manifest)

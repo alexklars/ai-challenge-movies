@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import com.ai.challenge.alexklars.movies.domain.remote.MovieRemoteDataSource
+import com.ai.challenge.alexklars.movies.presentation.movieDetails.MovieDetailsScreen
 import com.ai.challenge.alexklars.movies.presentation.movieList.MovieListScreen
 import com.ai.challenge.alexklars.movies.ui.theme.MoviesTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -19,7 +20,8 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             MoviesTheme {
-                MovieListScreen()
+//                MovieListScreen()
+                MovieDetailsScreen()
             }
         }
     }
