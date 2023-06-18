@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
@@ -25,12 +24,12 @@ fun MovieListScreen(
     viewModel: MovieListViewModel = viewModel()
 ) {
     val movies by viewModel.movies.collectAsState()
+    val sortType by viewModel.sortType.collectAsState()
 
     Scaffold(
         topBar = {
             TopAppBar(
                 title = { Text(text = "Movies Shop") },
-                backgroundColor = MaterialTheme.colors.primary
             )
         }
     ) {
@@ -42,14 +41,17 @@ fun MovieListScreen(
 
                 // Sort options UI
                 SortOptionsComponent(
-                    sortType = SortType.NAME_A_TO_Z,
-                    onSortSelected = viewModel::applySort
+                    sortType = sortType,
+                    onSortSelected = viewModel::applySort,
                 )
             }
 
             LazyColumn {
                 items(movies) { movie ->
-                    MovieItemComponent(movie = movie, onItemClick = viewModel::onMovieClicked)
+                    MovieItemComponent(
+                        movie = movie,
+                        onItemClick = viewModel::onMovieClicked,
+                    )
                 }
             }
         }
