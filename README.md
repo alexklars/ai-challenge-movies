@@ -4,6 +4,8 @@
 
 # Movies Shop Application
 
+<img src="readme_assets/movies_shop.gif"  width="180" height="400">
+
 The Movies Shop Application is a simple Android app that allows users to browse and shop for movies.
 This app includes features such as sorting movies by price or name, filtering movies based on price
 range, and viewing movie details. The app follows the Clean Architecture and MVVM (
